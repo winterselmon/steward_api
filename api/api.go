@@ -4,12 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"net/http" // import package net-http เข้ามา
+	"net/http"
+	"steward_api/models"
 
 	"github.com/gorilla/mux"
 )
 
 func HomePage(w http.ResponseWriter, _ *http.Request) {
+	result := models.Result{Result_Code: "200", Result_Massage: "Success"}
+	json.NewEncoder(w).Encode(result)
 	fmt.Fprint(w, "Welcome to the HomePage!")
 }
 
